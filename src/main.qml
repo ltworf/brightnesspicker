@@ -27,6 +27,13 @@ Window {
     title: qsTr("Brightness adjuster")
     id: mainwindow
 
+    Connections {
+        target: tray
+        onActivated: {
+            mainwindow.visible = !mainwindow.visible
+        }
+    }
+
     ListView {
         anchors.fill: parent
 
