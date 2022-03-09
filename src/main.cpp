@@ -36,9 +36,9 @@ int main(int argc, char *argv[])
 #endif
     QApplication app(argc, argv);
 
-    app.setApplicationName("asd");
-    app.setOrganizationDomain("asd");
-    app.setOrganizationName("asd");
+    app.setApplicationName("brightnesspicker");
+    app.setOrganizationDomain("brightnesspicker");
+    app.setOrganizationName("brightnesspicker");
 
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
