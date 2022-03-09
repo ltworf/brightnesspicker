@@ -1,0 +1,33 @@
+Source: brightnesspicker
+Section: x11
+Priority: optional
+Maintainer: Salvo 'LtWorf' Tomaselli <tiposchi@tiscali.it>
+Build-Depends:
+ debhelper-compat (= 13),
+ qt5-qmake,
+ qtbase5-dev,
+ qttools5-dev-tools,
+ qtdeclarative5-dev
+Standards-Version: 4.6.0
+Homepage: https://github.com/ltworf/brightnesspicker
+Vcs-Browser: https://github.com/ltworf/brightnesspicker
+Rules-Requires-Root: no
+
+Package: brightnesspicker
+Architecture: any
+Depends: ${shlibs:Depends},
+ ${misc:Depends},
+ qml-module-qt-labs-settings,
+ qml-module-qtquick-window2,
+ qml-module-qtquick-controls2,
+ qml-module-qtquick-layouts,
+ qml-module-qtquick2,
+ x11-xserver-utils
+Recommends:
+ qtwayland5
+Description: Graphical tool to set the screen brightness on Xorg
+ A little window with a slider for each screen which can be used to
+ adjust the brightness of the screens.
+ .
+ This is useful on desktop machines that do not have adjustable brightness
+ like laptops.
