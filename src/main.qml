@@ -41,6 +41,9 @@ Window {
             ListElement{devname: "DP-5"}
         }
 
-        delegate: Selector {device: devname}
+        delegate: Selector {
+            device: devname
+            width: parent.width
+        }
     }
 }
