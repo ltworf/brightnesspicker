@@ -25,6 +25,8 @@ author Salvo "LtWorf" Tomaselli <tiposchi@tiscali.it>
 #include <QTranslator>
 #include <QQmlContext>
 
+#include "xrandr.h"
+
 int main(int argc, char *argv[])
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
@@ -53,6 +55,9 @@ int main(int argc, char *argv[])
         if (!obj && url == objUrl)
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
+
+    Xrandr xrandr(&engine);
+    engine.rootContext()->setContextProperty("xrandr", &xrandr);
 
     engine.load(url);
 
