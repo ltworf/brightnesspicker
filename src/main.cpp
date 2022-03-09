@@ -24,6 +24,8 @@ author Salvo "LtWorf" Tomaselli <tiposchi@tiscali.it>
 #include <QLocale>
 #include <QTranslator>
 #include <QQmlContext>
+#include <QSystemTrayIcon>
+#include <QIcon>
 
 #include "xrandr.h"
 
@@ -48,6 +50,10 @@ int main(int argc, char *argv[])
         }
     }
 
+    QSystemTrayIcon tray;
+    tray.setIcon(QIcon("/usr/share/icons/oxygen/base/256x256/devices/video-display.png"));
+    tray.show();
+
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
@@ -58,6 +64,7 @@ int main(int argc, char *argv[])
 
     Xrandr xrandr(&engine);
     engine.rootContext()->setContextProperty("xrandr", &xrandr);
+    engine.rootContext()->setContextProperty("tray", &tray);
 
     engine.load(url);
 
