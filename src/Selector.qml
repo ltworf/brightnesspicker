@@ -51,6 +51,11 @@ ColumnLayout {
             from: 0.001
             to: 2
             value: 1
+
+            onValueChanged: {
+                xrandr.setBrightness(devname.text, brightness.value)
+            }
+            Component.onCompleted: xrandr.setBrightness(devname.text, brightness.value)
         }
 
         Button {
