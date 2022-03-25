@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Brightnesspicker
+Comment=User interface to set screens' brightness
+Comment[it]=Interfaccia utente per importare la luminosità degli schermi
+Exec=/usr/bin/brightnesspicker
+Icon=brightnesspicker
+Terminal=false
+Type=Application
+Categories=Utility;Settings;
+Keywords=brightness
+X-Purism-FormFactor=Workstation
+StartupNotify=true
