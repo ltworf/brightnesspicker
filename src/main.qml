@@ -27,6 +27,11 @@ Window {
     title: qsTr("Brightness adjuster")
     id: mainwindow
 
+    SystemPalette { id: palette; colorGroup: SystemPalette.Active }
+
+    color: palette.window
+
+
     Connections {
         target: tray
         onActivated: {

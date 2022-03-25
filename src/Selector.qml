@@ -62,6 +62,5 @@ ColumnLayout {
             onClicked: brightness.value = 1
             text: qsTr("Reset")
         }
-
     }
 }
