@@ -34,6 +34,16 @@ Window {
         }
     }
 
+    Component.onCompleted: {
+        items.clear();
+        var screens = xrandr.listScreens();
+        for(var i = 0; i < screens.length; i++) {
+            items.append({devname: screens[i], index: i})
+        }
+    }
+
+
+
     ListView {
         anchors.fill: parent
 
@@ -43,9 +53,6 @@ Window {
 
         ListModel {
             id: items
-
-            ListElement{devname: "DP-4"}
-            ListElement{devname: "DP-5"}
         }
 
         delegate: Selector {
