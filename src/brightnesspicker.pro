@@ -15,9 +15,6 @@ TRANSLATIONS += \
 CONFIG += lrelease
 CONFIG += embed_translations
 
-# Additional import path used to resolve QML modules in Qt Creator's code model
-QML_IMPORT_PATH =
-
 # Additional import path used to resolve QML modules just for Qt Quick Designer
 QML_DESIGNER_IMPORT_PATH =
 
@@ -26,3 +23,15 @@ HEADERS += \
 
 target.path = $${DESTDIR}/usr/bin
 INSTALLS += target
+
+launcher.files = extras/brightnesspicker.desktop
+launcher.path = $${DESTDIR}/usr/share/applications/
+INSTALLS += launcher
+
+icon.files = extras/brightnesspicker.svg
+icon.path = $${DESTDIR}/usr/share/icons/hicolor/48x48/apps/
+INSTALLS += icon
+
+manpage.files = extras/brightnesspicker.1
+manpage.path = $${DESTDIR}/usr/share/man/man1/
+INSTALLS += manpage
