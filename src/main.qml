@@ -21,6 +21,7 @@ author Salvo "LtWorf" Tomaselli <tiposchi@tiscali.it>
 import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
+import Qt.labs.settings 1.1
 
 Window {
     visible: true
@@ -28,9 +29,7 @@ Window {
     id: mainwindow
 
     SystemPalette { id: palette; colorGroup: SystemPalette.Active }
-
     color: palette.window
-
 
     Connections {
         target: tray
@@ -47,8 +46,6 @@ Window {
         }
     }
 
-
-
     ListView {
         anchors.fill: parent
 
@@ -64,5 +61,13 @@ Window {
             device: devname
             width: parent.width
         }
+    }
+
+    Settings {
+        id: settings
+        property alias x: mainwindow.x
+        property alias y: mainwindow.y
+        property alias width: mainwindow.width
+        property alias height: mainwindow.height
     }
 }
