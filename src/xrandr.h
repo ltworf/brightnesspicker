@@ -33,6 +33,7 @@ public:
 
 public slots:
     void setBrightness(QString, float);
+    QStringList listScreens();
 
 signals:
 

@@ -38,3 +38,23 @@ void Xrandr::setBrightness(QString device, float value) {
     xrandr->startDetached();
     delete xrandr;
 }
+
+QStringList Xrandr::listScreens() {
+    QStringList r;
+
+    QProcess xrandr(this);
+    xrandr.start("xrandr", QStringList(), QIODevice::ReadOnly);
+    xrandr.waitForStarted(-1);
+    xrandr.waitForFinished(-1);
+    if (xrandr.exitCode() != 0)
+        return r;
+    QString output = QString(xrandr.readAllStandardOutput());
+
+    QStringList lines = output.split("\n");
+    for (int i = 0; i < lines.length(); i++) {
+        if (lines[i].indexOf(" connected ") == -1)
+            continue; //uninteresting line
+        r << lines[i].split(" ")[0];
+    }
+    return r;
+}
